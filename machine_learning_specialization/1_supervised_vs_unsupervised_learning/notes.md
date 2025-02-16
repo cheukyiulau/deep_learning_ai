@@ -39,4 +39,4 @@
   * Obtain training set
   * Run training set on learning algorithm
   * Generate a model i.e., function `f(x)`
-  * Use `f(x)` to predict $\hat(y)$
+  * Use `f(x)` to predict $\hat{y}$
