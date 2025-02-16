@@ -35,3 +35,8 @@
 - `m` = number of training examples
 - `(x,y)` = single training example
 - $(x^i,y^i)$ = `i`-th training example
+- In general we:
+  * Obtain training set
+  * Run training set on learning algorithm
+  * Generate a model i.e., function `f(x)`
+  * Use `f(x)` to predict $\hat(y)$
