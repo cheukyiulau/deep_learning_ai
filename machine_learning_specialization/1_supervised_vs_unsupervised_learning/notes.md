@@ -40,3 +40,37 @@
   * Run training set on learning algorithm
   * Generate a model i.e., function `f(x)`
   * Use `f(x)` to predict $\hat{y}$
+- Linear regression with one variable (univariate linear regression)
+```math
+f(x)=wx+b
+```
+
+## Cost Function
+
+- Squared error cost function
+```math
+J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2
+J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}(f(x^i)-y^i)^2
+```
+- Goal is to miminize the cost function
+- We can plot `J(w)` as a function of `w` and visualize its minimum
+- We can also plot `J(w,b)` and visualize its minimum
+  * This is a 3D plot, and easiest to view as a contour graph
+
+## Gradient Descent
+
+- Algorithm for minimizing any function e.g., any cost function $J(w_1,w_2,...,w_n,b)$
+- Start with some initial guess
+- Keep changing `w,b` in the direction that most reduces `J(w,b)` until we are at or near a local minimum
+
+## Gradient Descent Algorithm
+
+- Update `w` and `b` *simultaneously*
+```math
+w=w-\alpha\frac{\partial}{\partial w}J(w,b)
+```
+  * $\alpha\in(0,1)$ is the learning rate, larger $\alpha$ leads to larger steps
+  * $\frac{d}{dw}J(w,b)$ is the step direction
+```math
+b=b-\alpha\frac{\partial}{\partial b}J(w,b)
+```
