@@ -70,7 +70,18 @@ J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}(f(x^i)-y^i)^2
 w=w-\alpha\frac{\partial}{\partial w}J(w,b)
 ```
   * $\alpha\in(0,1)$ is the learning rate, larger $\alpha$ leads to larger steps
-  * $\frac{d}{dw}J(w,b)$ is the step direction
+  * $\frac{\partial}{\partial w}J(w,b)$ is the step direction
 ```math
 b=b-\alpha\frac{\partial}{\partial b}J(w,b)
+```
+- If $\alpha$ is too small, it is computationally inefficient
+- If $\alpha$ is too large, you may miss the local minimum
+- As we approach local minimum, derivate (and the update step) becomes smaller
+
+## Gradient Descent for Linear Regression
+
+- Solving the derivative terms
+```math
+\frac{\partial}{\partial w}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(f(x^{(i)})-y^{(i)})x^{(i)}
+\frac{\partial}{\partial b}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(f(x^{(i)})-y^{(i)})
 ```
