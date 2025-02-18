@@ -87,3 +87,13 @@ b=b-\alpha\frac{\partial}{\partial b}J(w,b)
 \frac{\partial}{\partial b}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)
 \end{aligned}
 ```
+- The algorithm is to repeat the following until convergence:
+```math
+\begin{aligned}
+w=w-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)x^{(i)} \\
+b=b-\alpha\frac{\partial}{\partial b}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)
+\end{aligned}
+```
+- Remember to update `w` and `b` simultaneously
+- Square cost error will always have a single global minimum
+- Batch gradient descent uses all training examples
