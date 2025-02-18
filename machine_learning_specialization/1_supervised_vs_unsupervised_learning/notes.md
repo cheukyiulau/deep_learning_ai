@@ -83,7 +83,7 @@ b=b-\alpha\frac{\partial}{\partial b}J(w,b)
 - Solving the derivative terms
 ```math
 \begin{aligned}
-\frac{\partial}{\partial w}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(f(x^{(i)})-y^{(i)})x^{(i)} \\
-\frac{\partial}{\partial b}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(f(x^{(i)})-y^{(i)})
+\frac{\partial}{\partial w}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)x^{(i)} \\
+\frac{\partial}{\partial b}J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)
 \end{aligned}
 ```
