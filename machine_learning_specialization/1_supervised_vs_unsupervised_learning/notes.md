@@ -101,7 +101,7 @@ b=b-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)
 ## Multiple Features
 
 - $f(x)=w_{1}x_{1}+w_{2}x_{2}+...w_{n}x_{n}+b$
-- $f(x)=\vec{w}\dot\vec{x}+b$
+- $f(x)=\vec{w}\cdot\vec{x}+b$
 - Above is known as multiple linear regression
 
 ## Vectorization
