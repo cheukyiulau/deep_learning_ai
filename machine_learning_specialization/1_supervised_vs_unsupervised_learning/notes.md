@@ -97,3 +97,25 @@ b=b-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)
 - Remember to update `w` and `b` simultaneously
 - Square cost error will always have a single global minimum
 - Batch gradient descent uses all training examples
+
+## Multiple Features
+
+- $f(x)=w_{1}x_{1}+w_{2}x_{2}+...w_{n}x_{n}+b$
+- $f(x)=\vec{w}\dot\vec{x}+b$
+- Above is known as multiple linear regression
+
+## Vectorization
+
+- Take advantage of GPUs
+- Without vectorization
+```python
+f = 0
+for j in range(0, n):
+  f = f + w[j] * x[j]
+f = f + b
+```
+- With vectorization using NumPy
+```python
+f = np.dot(w, x) + b
+```
+- Shorter, and more efficient since NumPy parallelizes operations
