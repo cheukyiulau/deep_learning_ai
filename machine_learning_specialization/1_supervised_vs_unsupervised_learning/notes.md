@@ -101,7 +101,7 @@ b=b-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(x^{(i)})-y^{(i)}\right)
 ## Multiple Features
 
 - $f(x)=w_{1}x_{1}+w_{2}x_{2}+...w_{n}x_{n}+b$
-- $f(x)=\vec{w}\cdot\vec{x}+b$
+- $f(\vec{x)}=\vec{w}\cdot\vec{x}+b$
 - Above is known as multiple linear regression
 
 ## Vectorization
@@ -119,3 +119,46 @@ f = f + b
 f = np.dot(w, x) + b
 ```
 - Shorter, and more efficient since NumPy parallelizes operations
+
+## Gradient Descent for Multiple Linear Regression
+
+- Model is $f(\vec{x})=\vec{w}\cdot\vec{x}+b$
+- Cost function is $J(\vec{w},b)$
+- Update functions become:
+```math
+w_j=w_j-\alpha\frac{\partial}{\partial w_{j}}J(\vec{w},b) \\
+b=b-\alpha\frac{\partial}{\partial b}J(\vec{w},b)
+```
+- Expanding the partial derivatives:
+```math
+w_{1}=w_{1}-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(\vec{x}^(i))-y^{(i)}\right)x_{1}^{(i)} \\
+... \\
+w_{n}=w_{n}-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(\vec{x}^(i))-y^{(i)}\right)x_{n}^{(i)}
+b=b-\alpha\frac{1}{m}\sum_{i=1}^{m}\left(f(\vec{x}^{(i)})-y^{(i)}\right)
+```
+- Simultaneously update $w_j$ and $b$
+- Note that we can also use normal equation to solve for $w$ and $b$ without iterations
+  * Does not generalize to other learning algorithms
+  * Slow when the number of features is large
+  * May be used in ML libraries that implement linear regression
+
+## Feature Scaling
+
+- Improves gradient descent performance
+- Example
+  * $p=w_{1}x_{1}+w_{2}x_{2}$
+  * $x_{1}\in(300,2000)$
+  * $x_{2}\in(0,5)$
+- Larger features $x$ will get smaller parameters $w$ and vice-versa
+- Causes contour plot of $J(w,b)$ to be stretched (oval) resulting in more iterations to find minimum
+- We can scale `x` so that each go from $(0,1)$ resulting in circular $J(w,b)$ contours
+- Scaling above example by the max
+  * $x_{1}=\frac{x_{1}}{2000}$
+  * $x_{2}=\frac{x_{2}}{5}$
+- Scaling by mean normalization around zero where $\mu$ is the mean
+  * $x_{1}=\frac{x_{1}-\mu_{1}}{2000-300}$
+  * $x_{2}=\frac{x_{2}-\mu_{2}}{5-0}$
+- Scaling by z-score normalization where $\sigma$ is standard deviation
+  * $x_{1}=\frac{x_{1}-\mu_{1}}{\sigma_{1}}$
+  * $x_{2}=\frac{x_{2}-\mu_{2}}{\sigma_{2}}$
+- In general aim for $-1\le x\le 1$ for each feature
